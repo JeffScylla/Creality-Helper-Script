@@ -1,0 +1,23 @@
+Update from VII 2024 maked (or rewrited ) file 
+M600-support.cfg in directory Helper-Script. 2nd head in this file 
+
+[filament_switch_sensor filament_sensor]
+pause_on_runout: false
+switch_pin: !PC15
+runout_gcode:
+  M600
+
+This make disorder for printer and error by switch_pin: !PC15 
+Whitch is in others files assigned for [filament_motion_sensor filament_sensor]
+(BTT SFS V2)
+I changed it to
+
+[filament_motion_sensor filament_sensor]
+detection_length: 5.0
+extruder:extruder
+pause_on_runout: true
+switch_pin: ^PC15
+runout_gcode:
+  M600
+
+and everything is ok now. Thx guilouz for his work. He is really greath.
